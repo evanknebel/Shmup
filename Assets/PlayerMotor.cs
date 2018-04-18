@@ -20,10 +20,13 @@ public class PlayerMotor : MonoBehaviour
 
     void PerformMovement()
     {
-        if (velocity != Vector3.zero)
+        if (!Input.anyKey)
         {
-            rb.MovePosition(rb.position + velocity * Time.deltaTime);
+            velocity = Vector3.zero;
         }
+
+        rb.velocity = Vector3.zero;
+        rb.MovePosition(rb.position + velocity * Time.deltaTime);
     }
 
 	
