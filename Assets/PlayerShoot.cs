@@ -12,21 +12,20 @@ public class PlayerShoot : MonoBehaviour
     public float bulletSpeed;
     public float shootInterval;
     //public float timer;
-    // Use this for initialization
-    void Start()
-    {
-
-    }
 
     public void Shoot()
     {
-        GameObject spawnedThing = Instantiate(projectile);
-        Destroy(spawnedThing, shootInterval + 2);
-        spawnedThing.transform.position = transform.position + transform.forward * 2;
+        //GameObject spawnedThing = Instantiate(projectile);
+        //Destroy(spawnedThing, shootInterval + 2);
+        //spawnedThing.transform.position = transform.position + transform.forward * 2;
         
-        Vector3 shootDir = (spawnedThing.transform.position - me.transform.position).normalized;
-        spawnedThing.GetComponent<Rigidbody>().velocity = shootDir.normalized * bulletSpeed;
-        spawnedThing.transform.forward = shootDir.normalized;
+        //Vector3 shootDir = (spawnedThing.transform.position - me.transform.position).normalized;
+        //spawnedThing.GetComponent<Rigidbody>().velocity = shootDir.normalized * bulletSpeed;
+        //spawnedThing.transform.forward = shootDir.normalized;
+
+        ObjectPoolManager.Instance.SpawnFromPool("PlayerBullet", transform.position + transform.forward * 2, Quaternion.identity);
+
+
 
         //me.transform.forward = shootDir.normalized;
     }
