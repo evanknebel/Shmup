@@ -167,6 +167,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1806364870436732, guid: 1a0bff4a6f2ad794e906fbb33210fd2f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a0bff4a6f2ad794e906fbb33210fd2f, type: 2}
   m_IsPrefabParent: 0
@@ -249,22 +253,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &464608299 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1596745227516256, guid: fab9675adcca9b4479e1bbcf1d4d7457,
-    type: 2}
-  m_PrefabInternal: {fileID: 1499621920}
---- !u!114 &464608305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 464608299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d6024fc8e38e145a34bbcdede3c855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &734057355
 Prefab:
   m_ObjectHideFlags: 0
@@ -661,7 +649,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4428507053253514, guid: fab9675adcca9b4479e1bbcf1d4d7457, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4428507053253514, guid: fab9675adcca9b4479e1bbcf1d4d7457, type: 2}
       propertyPath: m_LocalRotation.z
@@ -669,21 +657,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4428507053253514, guid: fab9675adcca9b4479e1bbcf1d4d7457, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4428507053253514, guid: fab9675adcca9b4479e1bbcf1d4d7457, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 136349897247615422, guid: fab9675adcca9b4479e1bbcf1d4d7457,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54293974921216504, guid: fab9675adcca9b4479e1bbcf1d4d7457,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fab9675adcca9b4479e1bbcf1d4d7457, type: 2}
@@ -719,9 +697,9 @@ MonoBehaviour:
   - tag: PlayerBullet
     prefab: {fileID: 1965338891838352, guid: 284bc8328d1433441b70d078011d64ad, type: 2}
     size: 20
-  - tag: Enemy
-    prefab: {fileID: 1596745227516256, guid: fab9675adcca9b4479e1bbcf1d4d7457, type: 2}
-    size: 1
+  - tag: EnemyBullet
+    prefab: {fileID: 1965338891838352, guid: 284bc8328d1433441b70d078011d64ad, type: 2}
+    size: 20
 --- !u!4 &1614893299
 Transform:
   m_ObjectHideFlags: 0

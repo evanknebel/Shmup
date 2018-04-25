@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public double healthPoints = 10.0;
+    public double playerBulletDamage = 2.0;
+    PlayerShoot playerShoot;
+
+    public void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        healthPoints -= playerBulletDamage;
+        if (healthPoints <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Use this for initialization
     void Start ()
     {
-		
+        playerShoot = GetComponent<PlayerShoot>();
 	}
 	
 	// Update is called once per frame
