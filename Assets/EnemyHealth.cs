@@ -10,10 +10,13 @@ public class EnemyHealth : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        healthPoints -= playerBulletDamage;
-        if (healthPoints <= 0)
+        if (other.gameObject.tag == "PlayerBullet")
         {
-            Destroy(gameObject);
+            healthPoints -= playerBulletDamage;
+            if (healthPoints <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
