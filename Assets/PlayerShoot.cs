@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-
-    //public GameObject target;
-    public GameObject projectile;
     public GameObject me;
-
-    public float bulletSpeed;
     public float shootInterval;
-    //public float timer;
 
     public void Shoot()
     {

@@ -220,9 +220,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldMax: 15
   shield: 15
-  rechargeSpeed: 0.1
+  rechargeSpeed: 2
   healthPoints: 20
   enemyBulletDamage: 0.2
+  shieldStunTime: 3
+  timer: 0
 --- !u!114 &114724654980886066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -234,9 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e2e6c29eb4159498f51b0e9d13c65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
   me: {fileID: 1630468534273726}
-  bulletSpeed: 60
   shootInterval: 0.2
 --- !u!114 &114813241577132746
 MonoBehaviour:

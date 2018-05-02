@@ -9,12 +9,18 @@ public class PlayerHealth : MonoBehaviour
     public double rechargeSpeed;
     public double healthPoints;
     public double enemyBulletDamage;
+    public int shieldStunTime;
     EnemyShoot enemyShoot;
+    public int timer = 0;
+    bool isBeingDamaged = false;
+    bool isRunningCoroutine = false;
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "EnemyBullet")
         {
+            isBeingDamaged = true;
+
             shield -= enemyBulletDamage;
             if(shield <= 0)
             {
@@ -28,6 +34,30 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    IEnumerator ShieldStun()
+    {
+        isRunningCoroutine = true;
+
+        if ( timer == 0)
+        {
+            for (; ; timer++)
+            {
+                timer++;
+                if (timer >= 2)
+                {
+                    isBeingDamaged = false;
+                    isRunningCoroutine = false;
+                }
+                yield return new WaitForSeconds(shieldStunTime);
+            }
+        }
+        else
+        {
+            timer = 0;
+        }
+        
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -37,17 +67,26 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shield <= shieldMax)
+        if (isBeingDamaged == true
+            &&
+            isRunningCoroutine == false)
         {
-            shield += rechargeSpeed * Time.deltaTime;
+            StartCoroutine(ShieldStun());
         }
-        if (shield > shieldMax)
+        else if (isBeingDamaged == false)
         {
-            shield = shieldMax;
-        }
-        else if (shield <= 0)
-        {
-            shield = 0;
+            if (shield <= shieldMax)
+            {
+                shield += rechargeSpeed * Time.deltaTime;
+            }
+            if (shield > shieldMax)
+            {
+                shield = shieldMax;
+            }
+            else if (shield < 0)
+            {
+                shield = 0;
+            }
         }
     }
 }
